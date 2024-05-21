@@ -24,4 +24,20 @@ public class UserHomePageObject extends BasePage {
 		clickElement(driver, UserHomePageUI.LOGOUT_HEADER_LINK);
 	}
 
+	public UserLoginPageObject clickLoginHeaderLink() {
+		waitForElementClickable(driver, UserHomePageUI.LOGIN_HEADER_LINK);
+		clickElement(driver, UserHomePageUI.LOGIN_HEADER_LINK);
+		return PageGeneratorManager.getUserLoginPage(driver);
+	}
+
+	public boolean isMyAccountHeaderLinkDisplayed() {
+		waitForElementVisible(driver, UserHomePageUI.MY_ACCOUNT_HEADER_LINK);
+		return isElementDisplayed(driver, UserHomePageUI.MY_ACCOUNT_HEADER_LINK);
+	}
+
+	public boolean isLogoutHeaderLinkDisplayed() {
+		waitForElementVisible(driver, UserHomePageUI.LOGOUT_HEADER_LINK);
+		return isElementDisplayed(driver, UserHomePageUI.LOGOUT_HEADER_LINK);
+	}
+
 }

@@ -89,4 +89,14 @@ public class UserRegisterPageObject extends BasePage {
 		clickElement(driver, UserRegisterPageUI.REGISTER_HEADER_LINK);
 	}
 
+	public UserHomePageObject registerNewUserAccount(String firstName, String lastName, String emailAddress, String password) {
+		sendKeysToFirstNameTextbox(firstName);
+		sendKeysToLastNameTextbox(lastName);
+		sendKeysToEmailTextbox(emailAddress);
+		sendKeysToPasswordTextbox(password);
+		sendKeysToConfirmPasswordTextbox(password);
+		clickRegisterButton();
+		return clickContinueButton();
+	}
+
 }
