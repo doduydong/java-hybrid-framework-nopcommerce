@@ -1,6 +1,7 @@
 package commons;
 
 import java.io.IOException;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -76,6 +77,10 @@ public class BaseTest {
 				}
 			}
 		}
+	}
+
+	protected int getRandomNumber() {
+		return new Random().nextInt(99999);
 	}
 
 }
