@@ -2,14 +2,15 @@ package pageObjects.user;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.BasePage;
 import commons.PageGeneratorManager;
+import commons.UserPatternObjects;
 import pageUIs.user.UserLoginPageUI;
 
-public class UserLoginPageObject extends BasePage {
+public class UserLoginPageObject extends UserPatternObjects {
 	private WebDriver driver;
 
 	public UserLoginPageObject(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 
@@ -22,11 +23,6 @@ public class UserLoginPageObject extends BasePage {
 	public String getEmailTextboxErrorMessage() {
 		waitForElementVisible(driver, UserLoginPageUI.EMAIL_ERROR_MESSAGE);
 		return getElementText(driver, UserLoginPageUI.EMAIL_ERROR_MESSAGE);
-	}
-
-	public void clickLoginHeaderLink() {
-		waitForElementClickable(driver, UserLoginPageUI.LOGIN_HEADER_LINK);
-		clickElement(driver, UserLoginPageUI.LOGIN_HEADER_LINK);
 	}
 
 	public void sendKeysToEmailTextbox(String emailAddress) {

@@ -37,14 +37,14 @@ public class User_02_Login extends BaseTest {
 		notFoundEmail = "dongat@gmail.com";
 		incorrectPass = "se3Java";
 
-		userRegisterPage = userHomePage.clickRegisterHeaderLink();
+		userRegisterPage = (UserRegisterPageObject) userHomePage.clickHeaderLinkByLinkText("Register");
 		userHomePage = userRegisterPage.registerNewUserAccount(firstName, lastName, emailAddress, password);
-		userHomePage.clickLogoutHeaderLink();
+		userHomePage.clickHeaderLinkByLinkText("Log out");
 	}
 
 	@Test
 	public void Login_01_Empty_Data() {
-		userLoginPage = userHomePage.clickLoginHeaderLink();
+		userLoginPage = (UserLoginPageObject) userHomePage.clickHeaderLinkByLinkText("Log in");
 
 		userLoginPage.clickLoginButton();
 
@@ -53,7 +53,7 @@ public class User_02_Login extends BaseTest {
 
 	@Test
 	public void Login_02_Invalid_Email() {
-		userLoginPage.clickLoginHeaderLink();
+		userLoginPage.clickHeaderLinkByLinkText("Log in");
 
 		userLoginPage.sendKeysToEmailTextbox(invalidEmail);
 
@@ -66,7 +66,7 @@ public class User_02_Login extends BaseTest {
 
 	@Test
 	public void Login_03_Not_Found_Email() {
-		userLoginPage.clickLoginHeaderLink();
+		userLoginPage.clickHeaderLinkByLinkText("Log in");
 
 		userLoginPage.sendKeysToEmailTextbox(notFoundEmail);
 
@@ -79,7 +79,7 @@ public class User_02_Login extends BaseTest {
 
 	@Test
 	public void Login_04_Without_Password() {
-		userLoginPage.clickLoginHeaderLink();
+		userLoginPage.clickHeaderLinkByLinkText("Log in");
 
 		userLoginPage.sendKeysToEmailTextbox(emailAddress);
 
@@ -90,7 +90,7 @@ public class User_02_Login extends BaseTest {
 
 	@Test
 	public void Login_05_Incorrect_Password() {
-		userLoginPage.clickLoginHeaderLink();
+		userLoginPage.clickHeaderLinkByLinkText("Log in");
 
 		userLoginPage.sendKeysToEmailTextbox(emailAddress);
 
@@ -103,7 +103,7 @@ public class User_02_Login extends BaseTest {
 
 	@Test
 	public void Login_06_Valid_Data() {
-		userLoginPage.clickLoginHeaderLink();
+		userLoginPage.clickHeaderLinkByLinkText("Log in");
 
 		userLoginPage.sendKeysToEmailTextbox(emailAddress);
 
@@ -111,11 +111,11 @@ public class User_02_Login extends BaseTest {
 
 		userHomePage = userLoginPage.clickLoginButton();
 
-		Assert.assertTrue(userHomePage.isMyAccountHeaderLinkDisplayed());
+		Assert.assertTrue(userHomePage.isHeaderLinkDisplayedByLinkText("My account"));
 
-		Assert.assertTrue(userHomePage.isLogoutHeaderLinkDisplayed());
+		Assert.assertTrue(userHomePage.isHeaderLinkDisplayedByLinkText("Log out"));
 
-		userHomePage.clickLogoutHeaderLink();
+		userHomePage.clickHeaderLinkByLinkText("Log out");
 	}
 
 	@AfterClass(alwaysRun = true)

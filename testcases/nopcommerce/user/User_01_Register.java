@@ -38,7 +38,7 @@ public class User_01_Register extends BaseTest {
 
 	@Test
 	public void Register_01_Empty_Data() {
-		userRegisterPage = userHomePage.clickRegisterHeaderLink();
+		userRegisterPage = (UserRegisterPageObject) userHomePage.clickHeaderLinkByLinkText("Register");
 
 		userRegisterPage.clickRegisterButton();
 
@@ -53,7 +53,7 @@ public class User_01_Register extends BaseTest {
 
 	@Test
 	public void Register_02_Invalid_Email() {
-		userRegisterPage.clickRegisterHeaderLink();
+		userRegisterPage.clickHeaderLinkByLinkText("Register");
 
 		userRegisterPage.sendKeysToFirstNameTextbox(firstName);
 
@@ -72,7 +72,7 @@ public class User_01_Register extends BaseTest {
 
 	@Test
 	public void Register_03_Password_Less_Than_Six_Characters() {
-		userRegisterPage.clickRegisterHeaderLink();
+		userRegisterPage.clickHeaderLinkByLinkText("Register");
 
 		userRegisterPage.sendKeysToFirstNameTextbox(firstName);
 
@@ -91,7 +91,7 @@ public class User_01_Register extends BaseTest {
 
 	@Test
 	public void Register_04_Incorrect_Confirm_Password() {
-		userRegisterPage.clickRegisterHeaderLink();
+		userRegisterPage.clickHeaderLinkByLinkText("Register");
 
 		userRegisterPage.sendKeysToFirstNameTextbox(firstName);
 
@@ -110,7 +110,7 @@ public class User_01_Register extends BaseTest {
 
 	@Test
 	public void Register_05_Valid_Mandatory_Data() {
-		userRegisterPage.clickRegisterHeaderLink();
+		userRegisterPage.clickHeaderLinkByLinkText("Register");
 
 		userRegisterPage.sendKeysToFirstNameTextbox(firstName);
 
@@ -128,12 +128,12 @@ public class User_01_Register extends BaseTest {
 
 		userHomePage = userRegisterPage.clickContinueButton();
 
-		userHomePage.clickLogoutHeaderLink();
+		userHomePage.clickHeaderLinkByLinkText("Log out");
 	}
 
 	@Test
 	public void Register_06_Existing_Email() {
-		userRegisterPage = userHomePage.clickRegisterHeaderLink();
+		userRegisterPage = (UserRegisterPageObject) userHomePage.clickHeaderLinkByLinkText("Register");
 
 		userRegisterPage.sendKeysToFirstNameTextbox(firstName);
 
