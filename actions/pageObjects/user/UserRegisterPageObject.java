@@ -39,6 +39,36 @@ public class UserRegisterPageObject extends UserPatternObjects {
 		sendKeysToElement(driver, UserRegisterPageUI.CONFIRM_PASSWORD_TEXTBOX, password);
 	}
 
+	public void sendKeysToCompanyTextbox(String company) {
+		waitForElementVisible(driver, UserRegisterPageUI.COMPANY_TEXTBOX);
+		sendKeysToElement(driver, UserRegisterPageUI.COMPANY_TEXTBOX, company);
+	}
+
+	public void checkGenderRadioButtonByLabel(String gender) {
+		waitForElementClickable(driver, UserRegisterPageUI.GENDER_RADIO_BUTTON_BY_LABEL, gender);
+		checkDefaultCheckboxOrRadioButton(driver, UserRegisterPageUI.GENDER_RADIO_BUTTON_BY_LABEL, gender);
+	}
+
+	public void checkNewsletterCheckbox() {
+		waitForElementClickable(driver, UserRegisterPageUI.NEWSLETTER_CHECKBOX);
+		checkDefaultCheckboxOrRadioButton(driver, UserRegisterPageUI.NEWSLETTER_CHECKBOX);
+	}
+
+	public void selectDayDropdown(String day) {
+		waitForElementClickable(driver, UserRegisterPageUI.DAY_DROPDOWN);
+		selectOptionInDefaultDropdown(driver, UserRegisterPageUI.DAY_DROPDOWN, day);
+	}
+
+	public void selectMonthDropdown(String month) {
+		waitForElementClickable(driver, UserRegisterPageUI.MONTH_DROPDOWN);
+		selectOptionInDefaultDropdown(driver, UserRegisterPageUI.MONTH_DROPDOWN, month);
+	}
+
+	public void selectYearDropdown(String year) {
+		waitForElementClickable(driver, UserRegisterPageUI.YEAR_DROPDOWN);
+		selectOptionInDefaultDropdown(driver, UserRegisterPageUI.YEAR_DROPDOWN, year);
+	}
+
 	public String getFirstNameTextboxErrorMessage() {
 		waitForElementVisible(driver, UserRegisterPageUI.FIRSTNAME_ERROR_MESSAGE);
 		return getElementText(driver, UserRegisterPageUI.FIRSTNAME_ERROR_MESSAGE);
@@ -85,10 +115,26 @@ public class UserRegisterPageObject extends UserPatternObjects {
 		return getElementText(driver, UserRegisterPageUI.EXISTING_EMAIL_ERROR_MESSAGE);
 	}
 
-	public UserHomePageObject registerNewUserAccount(String firstName, String lastName, String emailAddress, String password) {
+	public UserHomePageObject registerNewUserAccountWithMandatoryData(String firstName, String lastName, String emailAddress, String password) {
 		sendKeysToFirstNameTextbox(firstName);
 		sendKeysToLastNameTextbox(lastName);
 		sendKeysToEmailTextbox(emailAddress);
+		sendKeysToPasswordTextbox(password);
+		sendKeysToConfirmPasswordTextbox(password);
+		clickRegisterButton();
+		return clickContinueButton();
+	}
+
+	public UserHomePageObject registerNewUserAccountWithAllData(String firstName, String lastName, String emailAddress, String password, String company, String gender, String day, String month, String year) {
+		checkGenderRadioButtonByLabel(gender);
+		sendKeysToFirstNameTextbox(firstName);
+		sendKeysToLastNameTextbox(lastName);
+		selectDayDropdown(day);
+		selectMonthDropdown(month);
+		selectYearDropdown(year);
+		sendKeysToEmailTextbox(emailAddress);
+		sendKeysToCompanyTextbox(company);
+		checkNewsletterCheckbox();
 		sendKeysToPasswordTextbox(password);
 		sendKeysToConfirmPasswordTextbox(password);
 		clickRegisterButton();

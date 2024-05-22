@@ -10,21 +10,22 @@ import org.testng.annotations.Test;
 import commons.BaseTest;
 import commons.GlobalConstants;
 import commons.PageGeneratorManager;
+import nopcommerce.common.Common_01_User_Register;
 import pageObjects.user.UserAddressesPageObject;
 import pageObjects.user.UserBackInStockSubscriptionsPageObject;
 import pageObjects.user.UserChangePasswordPageObject;
 import pageObjects.user.UserCustomerInfoPageObject;
 import pageObjects.user.UserDownloadableProductsPageObject;
 import pageObjects.user.UserHomePageObject;
+import pageObjects.user.UserLoginPageObject;
 import pageObjects.user.UserMyProductReviewsPageObject;
 import pageObjects.user.UserOrdersPageObject;
-import pageObjects.user.UserRegisterPageObject;
 import pageObjects.user.UserRewardPointsPageObject;
 
 public class User_03_My_Account extends BaseTest {
 	private WebDriver driver;
 	private UserHomePageObject userHomePage;
-	private UserRegisterPageObject userRegisterPage;
+	private UserLoginPageObject userLoginPage;
 	private UserCustomerInfoPageObject userCustomerInfoPage;
 	private UserAddressesPageObject userAddressesPage;
 	private UserOrdersPageObject userOrdersPage;
@@ -33,7 +34,7 @@ public class User_03_My_Account extends BaseTest {
 	private UserRewardPointsPageObject userRewardPointsPage;
 	private UserChangePasswordPageObject userChangePasswordPage;
 	private UserMyProductReviewsPageObject userMyProductReviewsPage;
-	private String firstName, lastName, emailAddress, password;
+	private String firstName, lastName, emailAddress, password, company, gender, day, month, year;
 
 	@Parameters("browser")
 	@BeforeClass
@@ -41,13 +42,18 @@ public class User_03_My_Account extends BaseTest {
 		driver = initWebDriverAndNavigateToPage(browserName, GlobalConstants.USER_PAGE_URL);
 		userHomePage = PageGeneratorManager.getUserHomePage(driver);
 
-		firstName = "Dong";
-		lastName = "Do";
-		emailAddress = "dongauto" + getRandomNumber() + "@gmail.com";
-		password = "javaSe3";
+		firstName = Common_01_User_Register.firstName;
+		lastName = Common_01_User_Register.lastName;
+		emailAddress = Common_01_User_Register.emailAddress;
+		password = Common_01_User_Register.password;
+		company = Common_01_User_Register.company;
+		gender = Common_01_User_Register.gender;
+		day = Common_01_User_Register.day;
+		month = Common_01_User_Register.month;
+		year = Common_01_User_Register.year;
 
-		userRegisterPage = (UserRegisterPageObject) userHomePage.clickHeaderLinkByLinkText("Register");
-		userHomePage = userRegisterPage.registerNewUserAccount(firstName, lastName, emailAddress, password);
+		userLoginPage = (UserLoginPageObject) userHomePage.clickHeaderLinkByLinkText("Log in");
+		userHomePage = userLoginPage.loginToSystem(emailAddress, password);
 	}
 
 	@Test
@@ -93,11 +99,23 @@ public class User_03_My_Account extends BaseTest {
 
 	@Test
 	public void My_Account_02_Verify_User_Info() {
+		Assert.assertTrue(userCustomerInfoPage.isGenderRadioButtonByLabelSelected(gender));
+
 		Assert.assertEquals(userCustomerInfoPage.getFirstNameTextboxValue(), firstName);
 
 		Assert.assertEquals(userCustomerInfoPage.getLastNameTextboxValue(), lastName);
 
+		Assert.assertEquals(userCustomerInfoPage.getDayDropdownValue(), day);
+
+		Assert.assertEquals(userCustomerInfoPage.getMonthDropdownValue(), month);
+
+		Assert.assertEquals(userCustomerInfoPage.getYearDropdownValue(), year);
+
 		Assert.assertEquals(userCustomerInfoPage.getEmailTextboxValue(), emailAddress);
+
+		Assert.assertEquals(userCustomerInfoPage.getCompanyTextboxValue(), company);
+
+		Assert.assertTrue(userCustomerInfoPage.isNewsletterCheckboxChecked());
 	}
 
 	@AfterClass(alwaysRun = true)

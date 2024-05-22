@@ -20,4 +20,11 @@ public class UserRegisterPageUI {
 	public static final String REGISTER_SUCCESS_MESSAGE = "//div[@class='result']";
 	public static final String EXISTING_EMAIL_ERROR_MESSAGE = "//div[contains(@class,'validation-summary-errors')]";
 
+	public static final String COMPANY_TEXTBOX = "//input[@id='Company']";
+	public static final String GENDER_RADIO_BUTTON_BY_LABEL = "//label[text()='%s']/preceding-sibling::input[@type='radio']";
+	public static final String NEWSLETTER_CHECKBOX = "//input[@id='Newsletter']";
+	public static final String DAY_DROPDOWN = "//select[@name='DateOfBirthDay']";
+	public static final String MONTH_DROPDOWN = "//select[@name='DateOfBirthMonth']";
+	public static final String YEAR_DROPDOWN = "//select[@name='DateOfBirthYear']";
+
 }

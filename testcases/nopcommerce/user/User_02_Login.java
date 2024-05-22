@@ -38,7 +38,7 @@ public class User_02_Login extends BaseTest {
 		incorrectPass = "se3Java";
 
 		userRegisterPage = (UserRegisterPageObject) userHomePage.clickHeaderLinkByLinkText("Register");
-		userHomePage = userRegisterPage.registerNewUserAccount(firstName, lastName, emailAddress, password);
+		userHomePage = userRegisterPage.registerNewUserAccountWithMandatoryData(firstName, lastName, emailAddress, password);
 		userHomePage.clickHeaderLinkByLinkText("Log out");
 	}
 

@@ -4,6 +4,7 @@
 	<test name="ChromeTest">
 		<parameter name="browser" value="chrome" />
 		<classes>
+			<class name="nopcommerce.common.Common_01_User_Register" />
 			<class name="nopcommerce.user.User_03_My_Account" />
 		</classes>
 	</test>
