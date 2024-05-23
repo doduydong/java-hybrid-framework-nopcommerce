@@ -15,4 +15,17 @@ public class UserData {
 		public static final String DOB_YEAR = "1997";
 	}
 
+	public class UserNewInfo {
+		public static final String FIRSTNAME = "Aelita";
+		public static final String LASTNAME = "Yuuki";
+		public static final String EMAIL_USERNAME = "aelita";
+		public static final String EMAIL_DOMAIN = "@gmail.com";
+		public static final String PASSWORD = "seleniumJ11";
+		public static final String COMPANY = "Hoyoverse";
+		public static final String GENDER = "Female";
+		public static final String DOB_DAY = "28";
+		public static final String DOB_MONTH = "September";
+		public static final String DOB_YEAR = "2000";
+	}
+
 }

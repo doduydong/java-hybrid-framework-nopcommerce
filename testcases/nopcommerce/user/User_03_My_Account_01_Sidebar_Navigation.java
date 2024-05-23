@@ -22,7 +22,7 @@ import pageObjects.user.UserMyProductReviewsPageObject;
 import pageObjects.user.UserOrdersPageObject;
 import pageObjects.user.UserRewardPointsPageObject;
 
-public class User_03_My_Account extends BaseTest {
+public class User_03_My_Account_01_Sidebar_Navigation extends BaseTest {
 	private WebDriver driver;
 	private UserHomePageObject userHomePage;
 	private UserLoginPageObject userLoginPage;
@@ -116,6 +116,8 @@ public class User_03_My_Account extends BaseTest {
 		Assert.assertEquals(userCustomerInfoPage.getCompanyTextboxValue(), company);
 
 		Assert.assertTrue(userCustomerInfoPage.isNewsletterCheckboxChecked());
+
+		userHomePage = (UserHomePageObject) userCustomerInfoPage.clickHeaderLinkByLinkText("Log out");
 	}
 
 	@AfterClass(alwaysRun = true)

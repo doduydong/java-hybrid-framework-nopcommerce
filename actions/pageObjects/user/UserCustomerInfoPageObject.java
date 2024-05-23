@@ -58,4 +58,54 @@ public class UserCustomerInfoPageObject extends UserPatternObjects {
 		return getSelectedOptionTextInDefaultDropdown(driver, UserCustomerInfoPageUI.YEAR_DROPDOWN);
 	}
 
+	public void sendKeysToFirstNameTextbox(String firstName) {
+		waitForElementVisible(driver, UserCustomerInfoPageUI.FIRSTNAME_TEXTBOX);
+		sendKeysToElement(driver, UserCustomerInfoPageUI.FIRSTNAME_TEXTBOX, firstName);
+	}
+
+	public void sendKeysToLastNameTextbox(String lastName) {
+		waitForElementVisible(driver, UserCustomerInfoPageUI.LASTNAME_TEXTBOX);
+		sendKeysToElement(driver, UserCustomerInfoPageUI.LASTNAME_TEXTBOX, lastName);
+	}
+
+	public void sendKeysToEmailTextbox(String emailAddress) {
+		waitForElementVisible(driver, UserCustomerInfoPageUI.EMAIL_TEXTBOX);
+		sendKeysToElement(driver, UserCustomerInfoPageUI.EMAIL_TEXTBOX, emailAddress);
+	}
+
+	public void sendKeysToCompanyTextbox(String company) {
+		waitForElementVisible(driver, UserCustomerInfoPageUI.COMPANY_TEXTBOX);
+		sendKeysToElement(driver, UserCustomerInfoPageUI.COMPANY_TEXTBOX, company);
+	}
+
+	public void checkGenderRadioButtonByLabel(String gender) {
+		waitForElementClickable(driver, UserCustomerInfoPageUI.GENDER_RADIO_BUTTON_BY_LABEL, gender);
+		checkDefaultCheckboxOrRadioButton(driver, UserCustomerInfoPageUI.GENDER_RADIO_BUTTON_BY_LABEL, gender);
+	}
+
+	public void uncheckNewsletterCheckbox() {
+		waitForElementClickable(driver, UserCustomerInfoPageUI.NEWSLETTER_CHECKBOX);
+		uncheckDefaultCheckbox(driver, UserCustomerInfoPageUI.NEWSLETTER_CHECKBOX);
+	}
+
+	public void selectDayDropdown(String day) {
+		waitForElementClickable(driver, UserCustomerInfoPageUI.DAY_DROPDOWN);
+		selectOptionInDefaultDropdown(driver, UserCustomerInfoPageUI.DAY_DROPDOWN, day);
+	}
+
+	public void selectMonthDropdown(String month) {
+		waitForElementClickable(driver, UserCustomerInfoPageUI.MONTH_DROPDOWN);
+		selectOptionInDefaultDropdown(driver, UserCustomerInfoPageUI.MONTH_DROPDOWN, month);
+	}
+
+	public void selectYearDropdown(String year) {
+		waitForElementClickable(driver, UserCustomerInfoPageUI.YEAR_DROPDOWN);
+		selectOptionInDefaultDropdown(driver, UserCustomerInfoPageUI.YEAR_DROPDOWN, year);
+	}
+
+	public void clickSaveButton() {
+		waitForElementClickable(driver, UserCustomerInfoPageUI.SAVE_BUTTON);
+		clickElement(driver, UserCustomerInfoPageUI.SAVE_BUTTON);
+	}
+
 }

@@ -12,6 +12,8 @@ public class UserPatternObjects extends BasePage {
 	private static final String HEADER_LINK_BY_LINKTEXT = "//div[@class='header-links']//a[text()='%s']";
 	private static final String MY_ACCOUNT_SIDEBAR_LINK_BY_LINKTEXT = "//strong[text()='My account']/parent::div/following-sibling::div//a[text()='%s']";
 	private static final String MY_ACCOUNT_PAGE_TITLE_BY_PAGENAME = "//div[contains(@class,'account-page')]//h1[text()='My account - %s']";
+	private static final String BAR_NOTIFICATION_SUCCESS = "//div[@class='bar-notification success']";
+	private static final String BAR_NOTIFICATION_SUCCESS_CLOSE_ICON = BAR_NOTIFICATION_SUCCESS + "//span[@class='close']";
 
 	public boolean isHeaderLinkDisplayedByLinkText(String linkText) {
 		waitForElementVisible(driver, HEADER_LINK_BY_LINKTEXT, linkText);
@@ -68,6 +70,15 @@ public class UserPatternObjects extends BasePage {
 	public boolean isMyAccountPageTitleDisplayedByPageName(String pageName) {
 		waitForElementVisible(driver, MY_ACCOUNT_PAGE_TITLE_BY_PAGENAME, pageName);
 		return isElementDisplayed(driver, MY_ACCOUNT_PAGE_TITLE_BY_PAGENAME, pageName);
+	}
+
+	public String getBarNotificationSuccessMessage() {
+		waitForElementVisible(driver, BAR_NOTIFICATION_SUCCESS);
+		String message = getElementText(driver, BAR_NOTIFICATION_SUCCESS);
+		waitForElementClickable(driver, BAR_NOTIFICATION_SUCCESS_CLOSE_ICON);
+		clickElement(driver, BAR_NOTIFICATION_SUCCESS_CLOSE_ICON);
+		waitForElementInvisible(driver, BAR_NOTIFICATION_SUCCESS);
+		return message;
 	}
 
 }
