@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import commons.BaseTest;
 import commons.GlobalConstants;
 import commons.PageGeneratorManager;
+import nopcommerce.data.UserData.UserDefaultInfo;
 import pageObjects.user.UserHomePageObject;
 import pageObjects.user.UserLoginPageObject;
 import pageObjects.user.UserRegisterPageObject;
@@ -28,10 +29,10 @@ public class User_02_Login extends BaseTest {
 		driver = initWebDriverAndNavigateToPage(browserName, GlobalConstants.USER_PAGE_URL);
 		userHomePage = PageGeneratorManager.getUserHomePage(driver);
 
-		firstName = "Dong";
-		lastName = "Do";
-		emailAddress = "dongauto" + getRandomNumber() + "@gmail.com";
-		password = "javaSe3";
+		firstName = UserDefaultInfo.FIRSTNAME;
+		lastName = UserDefaultInfo.LASTNAME;
+		emailAddress = UserDefaultInfo.EMAIL_USERNAME + getRandomNumber() + UserDefaultInfo.EMAIL_DOMAIN;
+		password = UserDefaultInfo.PASSWORD;
 
 		invalidEmail = "dongauto@gmail@com";
 		notFoundEmail = "dongat@gmail.com";

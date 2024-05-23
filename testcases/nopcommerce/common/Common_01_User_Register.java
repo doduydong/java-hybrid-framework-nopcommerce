@@ -7,6 +7,7 @@ import org.testng.annotations.Parameters;
 import commons.BaseTest;
 import commons.GlobalConstants;
 import commons.PageGeneratorManager;
+import nopcommerce.data.UserData.UserDefaultInfo;
 import pageObjects.user.UserHomePageObject;
 import pageObjects.user.UserRegisterPageObject;
 
@@ -22,15 +23,15 @@ public class Common_01_User_Register extends BaseTest {
 		driver = initWebDriverAndNavigateToPage(browserName, GlobalConstants.USER_PAGE_URL);
 		userHomePage = PageGeneratorManager.getUserHomePage(driver);
 
-		firstName = "Dong";
-		lastName = "Do";
-		emailAddress = "dongauto" + getRandomNumber() + "@gmail.com";
-		password = "javaSe3";
-		company = "D-SDET";
-		gender = "Male";
-		day = "13";
-		month = "October";
-		year = "1997";
+		firstName = UserDefaultInfo.FIRSTNAME;
+		lastName = UserDefaultInfo.LASTNAME;
+		emailAddress = UserDefaultInfo.EMAIL_USERNAME + getRandomNumber() + UserDefaultInfo.EMAIL_DOMAIN;
+		password = UserDefaultInfo.PASSWORD;
+		company = UserDefaultInfo.COMPANY;
+		gender = UserDefaultInfo.GENDER;
+		day = UserDefaultInfo.DOB_DAY;
+		month = UserDefaultInfo.DOB_MONTH;
+		year = UserDefaultInfo.DOB_YEAR;
 
 		userRegisterPage = (UserRegisterPageObject) userHomePage.clickHeaderLinkByLinkText("Register");
 
