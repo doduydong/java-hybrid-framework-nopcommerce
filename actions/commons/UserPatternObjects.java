@@ -2,6 +2,8 @@ package commons;
 
 import org.openqa.selenium.WebDriver;
 
+import pageObjects.user.UserSearchPageObject;
+
 public class UserPatternObjects extends BasePage {
 	private WebDriver driver;
 
@@ -10,6 +12,7 @@ public class UserPatternObjects extends BasePage {
 	}
 
 	private static final String HEADER_LINK_BY_LINKTEXT = "//div[@class='header-links']//a[text()='%s']";
+	private static final String FOOTER_CUSTOMER_SERVICE_LINK_BY_LINKTEXT = "//div[@class='footer']//div[@class='footer-block customer-service']//a[text()='%s']";
 	private static final String MY_ACCOUNT_SIDEBAR_LINK_BY_LINKTEXT = "//strong[text()='My account']/parent::div/following-sibling::div//a[text()='%s']";
 	private static final String MY_ACCOUNT_PAGE_TITLE_BY_PAGENAME = "//div[contains(@class,'account-page')]//h1[text()='My account - %s']";
 	private static final String BAR_NOTIFICATION_SUCCESS = "//div[@class='bar-notification success']";
@@ -32,6 +35,22 @@ public class UserPatternObjects extends BasePage {
 			return PageGeneratorManager.getUserHomePage(driver);
 		case "My account":
 			return PageGeneratorManager.getUserCustomerInfoPage(driver);
+		default:
+			throw new RuntimeException("'" + linkText.toUpperCase() + "' Header link is invalid.");
+		}
+	}
+
+	public boolean isFooterCustomerServiceLinkDisplayedByLinkText(String linkText) {
+		waitForElementVisible(driver, FOOTER_CUSTOMER_SERVICE_LINK_BY_LINKTEXT, linkText);
+		return isElementDisplayed(driver, FOOTER_CUSTOMER_SERVICE_LINK_BY_LINKTEXT, linkText);
+	}
+
+	public UserSearchPageObject clickFooterCustomerServiceLinkByLinkText(String linkText) {
+		waitForElementClickable(driver, FOOTER_CUSTOMER_SERVICE_LINK_BY_LINKTEXT, linkText);
+		clickElement(driver, FOOTER_CUSTOMER_SERVICE_LINK_BY_LINKTEXT, linkText);
+		switch (linkText) {
+		case "Search":
+			return PageGeneratorManager.getUserSearchPage(driver);
 		default:
 			throw new RuntimeException("'" + linkText.toUpperCase() + "' Header link is invalid.");
 		}

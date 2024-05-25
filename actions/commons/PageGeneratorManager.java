@@ -13,6 +13,7 @@ import pageObjects.user.UserMyProductReviewsPageObject;
 import pageObjects.user.UserOrdersPageObject;
 import pageObjects.user.UserRegisterPageObject;
 import pageObjects.user.UserRewardPointsPageObject;
+import pageObjects.user.UserSearchPageObject;
 
 public class PageGeneratorManager {
 
@@ -27,8 +28,6 @@ public class PageGeneratorManager {
 	public static UserLoginPageObject getUserLoginPage(WebDriver driver) {
 		return new UserLoginPageObject(driver);
 	}
-
-	// My account pages
 
 	public static UserCustomerInfoPageObject getUserCustomerInfoPage(WebDriver driver) {
 		return new UserCustomerInfoPageObject(driver);
@@ -60,6 +59,10 @@ public class PageGeneratorManager {
 
 	public static UserMyProductReviewsPageObject getUserMyProductReviewsPage(WebDriver driver) {
 		return new UserMyProductReviewsPageObject(driver);
+	}
+
+	public static UserSearchPageObject getUserSearchPage(WebDriver driver) {
+		return new UserSearchPageObject(driver);
 	}
 
 }
