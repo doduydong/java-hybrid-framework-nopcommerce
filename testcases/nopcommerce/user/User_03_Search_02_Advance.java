@@ -15,7 +15,7 @@ import pageObjects.user.UserHomePageObject;
 import pageObjects.user.UserLoginPageObject;
 import pageObjects.user.UserSearchPageObject;
 
-public class User_03_Search extends BaseTest {
+public class User_03_Search_02_Advance extends BaseTest {
 	private WebDriver driver;
 	private UserHomePageObject userHomePage;
 	private UserLoginPageObject userLoginPage;
@@ -36,27 +36,18 @@ public class User_03_Search extends BaseTest {
 	}
 
 	@Test
-	public void Search_01_Empty_Data() {
+	public void Advanced_Search_01_Without_Sub_Categories() {
 		Assert.assertTrue(userHomePage.isFooterCustomerServiceLinkDisplayedByLinkText("Search"));
 
 		userSearchPage = userHomePage.clickFooterCustomerServiceLinkByLinkText("Search");
 
 		Assert.assertTrue(userSearchPage.isSearchPageTitleDisplayed());
 
-		userSearchPage.clickSearchButton();
+		userSearchPage.sendKeysToSearchKeyword("Mac");
 
-		Assert.assertEquals(userSearchPage.getSearchErrorMessage(), "Search term minimum length is 3 characters");
-	}
+		userSearchPage.checkAdvancedSearchCheckbox();
 
-	@Test
-	public void Search_02_Data_Not_Found() {
-		Assert.assertTrue(userSearchPage.isFooterCustomerServiceLinkDisplayedByLinkText("Search"));
-
-		userSearchPage.clickFooterCustomerServiceLinkByLinkText("Search");
-
-		Assert.assertTrue(userSearchPage.isSearchPageTitleDisplayed());
-
-		userSearchPage.sendKeysToSearchKeyword("Xiaomi");
+		userSearchPage.selectCategoryDropdown("Computers");
 
 		userSearchPage.clickSearchButton();
 
@@ -64,33 +55,60 @@ public class User_03_Search extends BaseTest {
 	}
 
 	@Test
-	public void Search_03_Relative_Name_Data() {
-		Assert.assertTrue(userSearchPage.isFooterCustomerServiceLinkDisplayedByLinkText("Search"));
-
+	public void Advanced_Search_02_With_Sub_Categories() {
 		userSearchPage.clickFooterCustomerServiceLinkByLinkText("Search");
 
 		Assert.assertTrue(userSearchPage.isSearchPageTitleDisplayed());
 
-		userSearchPage.sendKeysToSearchKeyword("Lenovo");
+		userSearchPage.sendKeysToSearchKeyword("Mac");
+
+		userSearchPage.checkAdvancedSearchCheckbox();
+
+		userSearchPage.selectCategoryDropdown("Computers");
+
+		userSearchPage.checkAutomaticallySearchSubCategoriesCheckbox();
 
 		userSearchPage.clickSearchButton();
 
-		Assert.assertTrue(userSearchPage.verifyAllDisplayedProductsContainsKeyName("Lenovo"));
+		Assert.assertTrue(userSearchPage.verifyAllDisplayedProductsContainsKeyName("Mac"));
 	}
 
 	@Test
-	public void Search_04_Absolute_Name_Data() {
-		Assert.assertTrue(userSearchPage.isFooterCustomerServiceLinkDisplayedByLinkText("Search"));
+	public void Advanced_Search_03_Incorrect_Manufacturer() {
+		Assert.assertTrue(userHomePage.isFooterCustomerServiceLinkDisplayedByLinkText("Search"));
 
-		userSearchPage.clickFooterCustomerServiceLinkByLinkText("Search");
+		userSearchPage = userHomePage.clickFooterCustomerServiceLinkByLinkText("Search");
 
 		Assert.assertTrue(userSearchPage.isSearchPageTitleDisplayed());
 
-		userSearchPage.sendKeysToSearchKeyword("Lenovo Thinkpad X1 Carbon Laptop");
+		userSearchPage.sendKeysToSearchKeyword("Mac");
+
+		userSearchPage.checkAdvancedSearchCheckbox();
+
+		userSearchPage.selectManufacturerDropdown("HP");
 
 		userSearchPage.clickSearchButton();
 
-		Assert.assertTrue(userSearchPage.verifyDisplayedProductByName("Lenovo Thinkpad X1 Carbon Laptop"));
+		Assert.assertEquals(userSearchPage.getNoResultMessage(), "No products were found that matched your criteria.");
+	}
+
+	@Test
+	public void Advanced_Search_04_Correct_Manufacturer() {
+		Assert.assertTrue(userHomePage.isFooterCustomerServiceLinkDisplayedByLinkText("Search"));
+
+		userSearchPage = userHomePage.clickFooterCustomerServiceLinkByLinkText("Search");
+
+		Assert.assertTrue(userSearchPage.isSearchPageTitleDisplayed());
+
+		userSearchPage.sendKeysToSearchKeyword("Mac");
+
+		userSearchPage.checkAdvancedSearchCheckbox();
+
+		userSearchPage.selectManufacturerDropdown("Apple");
+
+		userSearchPage.clickSearchButton();
+
+		Assert.assertTrue(userSearchPage.verifyAllDisplayedProductsContainsKeyName("Mac"));
 	}
 
 	@AfterClass(alwaysRun = true)

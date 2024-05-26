@@ -5,7 +5,7 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="nopcommerce.common.Common_01_User_Register" />
-			<class name="nopcommerce.user.User_03_Search" />
+			<class name="nopcommerce.user.User_03_Search_02_Advance" />
 		</classes>
 	</test>
 

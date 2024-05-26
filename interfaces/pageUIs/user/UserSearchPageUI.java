@@ -9,5 +9,9 @@ public class UserSearchPageUI {
 	public static final String NO_RESULT_MESSAGE = "//div[@class='no-result']";
 	public static final String PRODUCT_ITEM = "//div[@class='product-item']";
 	public static final String PRODUCT_ITEM_NAME = PRODUCT_ITEM + "//h2[@class='product-title']/a";
+	public static final String ADVANCED_SEARCH_CHECKBOX = "//label[text()='Advanced search']/preceding-sibling::input[@type='checkbox']";
+	public static final String CATEGORY_DROPDOWN = "//label[text()='Category:']/following-sibling::select";
+	public static final String AUTOMATICALLY_SEARCH_SUB_CATEGORIES_CHECKBOX = "//label[text()='Automatically search sub categories']/preceding-sibling::input[@type='checkbox']";
+	public static final String MANUFACTURER_DROPDOWN = "//label[text()='Manufacturer:']/following-sibling::select";
 
 }

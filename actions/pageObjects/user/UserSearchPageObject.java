@@ -65,4 +65,24 @@ public class UserSearchPageObject extends UserPatternObjects {
 		}
 	}
 
+	public void checkAdvancedSearchCheckbox() {
+		waitForElementClickable(driver, UserSearchPageUI.ADVANCED_SEARCH_CHECKBOX);
+		checkDefaultCheckboxOrRadioButton(driver, UserSearchPageUI.ADVANCED_SEARCH_CHECKBOX);
+	}
+
+	public void selectCategoryDropdown(String optionText) {
+		waitForElementClickable(driver, UserSearchPageUI.CATEGORY_DROPDOWN);
+		selectOptionInDefaultDropdown(driver, UserSearchPageUI.CATEGORY_DROPDOWN, optionText);
+	}
+
+	public void checkAutomaticallySearchSubCategoriesCheckbox() {
+		waitForElementClickable(driver, UserSearchPageUI.AUTOMATICALLY_SEARCH_SUB_CATEGORIES_CHECKBOX);
+		checkDefaultCheckboxOrRadioButton(driver, UserSearchPageUI.AUTOMATICALLY_SEARCH_SUB_CATEGORIES_CHECKBOX);
+	}
+
+	public void selectManufacturerDropdown(String optionText) {
+		waitForElementClickable(driver, UserSearchPageUI.MANUFACTURER_DROPDOWN);
+		selectOptionInDefaultDropdown(driver, UserSearchPageUI.MANUFACTURER_DROPDOWN, optionText);
+	}
+
 }
