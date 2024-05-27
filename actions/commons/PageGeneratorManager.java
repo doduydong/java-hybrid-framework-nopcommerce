@@ -5,11 +5,13 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.user.UserAddressesPageObject;
 import pageObjects.user.UserBackInStockSubscriptionsPageObject;
 import pageObjects.user.UserChangePasswordPageObject;
+import pageObjects.user.UserComputersPageObject;
 import pageObjects.user.UserCustomerInfoPageObject;
 import pageObjects.user.UserDownloadableProductsPageObject;
 import pageObjects.user.UserHomePageObject;
 import pageObjects.user.UserLoginPageObject;
 import pageObjects.user.UserMyProductReviewsPageObject;
+import pageObjects.user.UserNotebooksPageObject;
 import pageObjects.user.UserOrdersPageObject;
 import pageObjects.user.UserRegisterPageObject;
 import pageObjects.user.UserRewardPointsPageObject;
@@ -63,6 +65,14 @@ public class PageGeneratorManager {
 
 	public static UserSearchPageObject getUserSearchPage(WebDriver driver) {
 		return new UserSearchPageObject(driver);
+	}
+
+	public static UserComputersPageObject getUserComputersPage(WebDriver driver) {
+		return new UserComputersPageObject(driver);
+	}
+
+	public static UserNotebooksPageObject getUserNotebooksPage(WebDriver driver) {
+		return new UserNotebooksPageObject(driver);
 	}
 
 }
