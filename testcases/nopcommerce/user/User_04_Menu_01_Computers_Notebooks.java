@@ -11,10 +11,10 @@ import commons.BaseTest;
 import commons.GlobalConstants;
 import commons.PageGeneratorManager;
 import nopcommerce.common.Common_01_User_Register;
-import pageObjects.user.UserComputersPageObject;
-import pageObjects.user.UserHomePageObject;
-import pageObjects.user.UserLoginPageObject;
-import pageObjects.user.UserNotebooksPageObject;
+import pageObjects.user.common.UserComputersPageObject;
+import pageObjects.user.common.UserHomePageObject;
+import pageObjects.user.common.UserLoginPageObject;
+import pageObjects.user.common.UserNotebooksPageObject;
 
 public class User_04_Menu_01_Computers_Notebooks extends BaseTest {
 	private WebDriver driver;

@@ -2,20 +2,20 @@ package commons;
 
 import org.openqa.selenium.WebDriver;
 
-import pageObjects.user.UserAddressesPageObject;
-import pageObjects.user.UserBackInStockSubscriptionsPageObject;
-import pageObjects.user.UserChangePasswordPageObject;
-import pageObjects.user.UserComputersPageObject;
-import pageObjects.user.UserCustomerInfoPageObject;
-import pageObjects.user.UserDownloadableProductsPageObject;
-import pageObjects.user.UserHomePageObject;
-import pageObjects.user.UserLoginPageObject;
-import pageObjects.user.UserMyProductReviewsPageObject;
-import pageObjects.user.UserNotebooksPageObject;
-import pageObjects.user.UserOrdersPageObject;
-import pageObjects.user.UserRegisterPageObject;
-import pageObjects.user.UserRewardPointsPageObject;
-import pageObjects.user.UserSearchPageObject;
+import pageObjects.user.common.UserComputersPageObject;
+import pageObjects.user.common.UserHomePageObject;
+import pageObjects.user.common.UserLoginPageObject;
+import pageObjects.user.common.UserNotebooksPageObject;
+import pageObjects.user.common.UserRegisterPageObject;
+import pageObjects.user.common.UserSearchPageObject;
+import pageObjects.user.myAccount.UserAddressesPageObject;
+import pageObjects.user.myAccount.UserBackInStockSubscriptionsPageObject;
+import pageObjects.user.myAccount.UserChangePasswordPageObject;
+import pageObjects.user.myAccount.UserCustomerInfoPageObject;
+import pageObjects.user.myAccount.UserDownloadableProductsPageObject;
+import pageObjects.user.myAccount.UserMyProductReviewsPageObject;
+import pageObjects.user.myAccount.UserOrdersPageObject;
+import pageObjects.user.myAccount.UserRewardPointsPageObject;
 
 public class PageGeneratorManager {
 

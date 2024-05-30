@@ -12,10 +12,10 @@ import commons.GlobalConstants;
 import commons.PageGeneratorManager;
 import nopcommerce.common.Common_01_User_Register;
 import nopcommerce.data.UserData.UserNewInfo;
-import pageObjects.user.UserChangePasswordPageObject;
-import pageObjects.user.UserCustomerInfoPageObject;
-import pageObjects.user.UserHomePageObject;
-import pageObjects.user.UserLoginPageObject;
+import pageObjects.user.common.UserHomePageObject;
+import pageObjects.user.common.UserLoginPageObject;
+import pageObjects.user.myAccount.UserChangePasswordPageObject;
+import pageObjects.user.myAccount.UserCustomerInfoPageObject;
 
 public class User_03_My_Account_03_Change_Password extends BaseTest {
 	private WebDriver driver;

@@ -11,9 +11,9 @@ import commons.BaseTest;
 import commons.GlobalConstants;
 import commons.PageGeneratorManager;
 import nopcommerce.data.UserData.UserDefaultInfo;
-import pageObjects.user.UserHomePageObject;
-import pageObjects.user.UserLoginPageObject;
-import pageObjects.user.UserRegisterPageObject;
+import pageObjects.user.common.UserHomePageObject;
+import pageObjects.user.common.UserLoginPageObject;
+import pageObjects.user.common.UserRegisterPageObject;
 
 public class User_02_Login extends BaseTest {
 	private WebDriver driver;

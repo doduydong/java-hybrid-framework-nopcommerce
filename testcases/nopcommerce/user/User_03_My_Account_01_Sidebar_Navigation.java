@@ -11,16 +11,16 @@ import commons.BaseTest;
 import commons.GlobalConstants;
 import commons.PageGeneratorManager;
 import nopcommerce.common.Common_01_User_Register;
-import pageObjects.user.UserAddressesPageObject;
-import pageObjects.user.UserBackInStockSubscriptionsPageObject;
-import pageObjects.user.UserChangePasswordPageObject;
-import pageObjects.user.UserCustomerInfoPageObject;
-import pageObjects.user.UserDownloadableProductsPageObject;
-import pageObjects.user.UserHomePageObject;
-import pageObjects.user.UserLoginPageObject;
-import pageObjects.user.UserMyProductReviewsPageObject;
-import pageObjects.user.UserOrdersPageObject;
-import pageObjects.user.UserRewardPointsPageObject;
+import pageObjects.user.common.UserHomePageObject;
+import pageObjects.user.common.UserLoginPageObject;
+import pageObjects.user.myAccount.UserAddressesPageObject;
+import pageObjects.user.myAccount.UserBackInStockSubscriptionsPageObject;
+import pageObjects.user.myAccount.UserChangePasswordPageObject;
+import pageObjects.user.myAccount.UserCustomerInfoPageObject;
+import pageObjects.user.myAccount.UserDownloadableProductsPageObject;
+import pageObjects.user.myAccount.UserMyProductReviewsPageObject;
+import pageObjects.user.myAccount.UserOrdersPageObject;
+import pageObjects.user.myAccount.UserRewardPointsPageObject;
 
 public class User_03_My_Account_01_Sidebar_Navigation extends BaseTest {
 	private WebDriver driver;
